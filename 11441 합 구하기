@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+	cin.tie(NULL); cout.tie(NULL);
+	ios_base::sync_with_stdio(false);
+
+    int n; cin >> n;
+    int prefix[100005] = {}, sum = 0;
+    for(int i = 1; i <= n; i++)
+    {
+        int a; cin >> a;
+        sum += a;
+        prefix[i] = sum;
+    }
+    int m; cin >> m;
+    for(int i = 0; i < m; i++)
+    {
+        int x, y; cin >> x >> y;
+        cout << prefix[y] - prefix[x - 1] << '\n';
+    }
+}
